@@ -4,6 +4,8 @@ struct WatchContentView: View {
     @StateObject private var location = LocationManager()
     @StateObject private var viewModel = SurfScheduleViewModel()
 
+    @State private var didInitialLoad = false
+
     var body: some View {
         NavigationStack {
             Group {
@@ -15,34 +17,57 @@ struct WatchContentView: View {
                         Text(message)
                             .font(.footnote)
                             .multilineTextAlignment(.center)
-                        Button("Retry") { reload() }
+                        Button("Retry") { Task { await viewModel.reload() } }
                     }
                 case .loaded:
-                    List(viewModel.days) { day in
-                        WatchDayRow(day: day)
+                    List {
+                        if !viewModel.nearbyStations.isEmpty {
+                            NavigationLink {
+                                BeachPicker(viewModel: viewModel)
+                            } label: {
+                                Label(viewModel.selectedStation?.name ?? "Choose beach",
+                                      systemImage: "mappin.and.ellipse")
+                                    .font(.footnote)
+                            }
+                        }
+                        ForEach(viewModel.days) { day in
+                            WatchDayRow(day: day)
+                        }
                     }
                 }
             }
             .navigationTitle("Surf")
         }
         .task(id: location.location) {
-            if location.location != nil {
-                await reloadAsync()
-            }
+            guard !didInitialLoad, let coordinate = location.location?.coordinate else { return }
+            didInitialLoad = true
+            await viewModel.load(around: coordinate)
         }
         .onAppear { location.requestLocation() }
     }
+}
 
-    private func reload() {
-        Task { await reloadAsync() }
-    }
+/// A scrollable list of nearby beaches; tapping one reloads and pops back.
+private struct BeachPicker: View {
+    @ObservedObject var viewModel: SurfScheduleViewModel
+    @Environment(\.dismiss) private var dismiss
 
-    private func reloadAsync() async {
-        guard let coordinate = location.location?.coordinate else {
-            location.requestLocation()
-            return
+    var body: some View {
+        List(viewModel.nearbyStations) { station in
+            Button {
+                Task { await viewModel.select(station) }
+                dismiss()
+            } label: {
+                HStack {
+                    Text(station.menuLabel)
+                    Spacer()
+                    if station.id == viewModel.selectedStation?.id {
+                        Image(systemName: "checkmark")
+                    }
+                }
+            }
         }
-        await viewModel.load(for: coordinate)
+        .navigationTitle("Beaches")
     }
 }
 

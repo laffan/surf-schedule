@@ -14,11 +14,13 @@ final class SurfScheduleViewModel: ObservableObject {
     }
 
     @Published var days: [SurfDay] = []
-    @Published var stationName: String?
+    @Published var nearbyStations: [TideStation] = []
+    @Published var selectedStation: TideStation?
     @Published var state: LoadState = .idle
 
     private let tideService = NOAATideService()
     private let weatherService = WeatherService()
+    private let geocoder = GeocodingService()
 
     /// Number of days shown in the calendar.
     private let forecastDays = 7
@@ -26,13 +28,65 @@ final class SurfScheduleViewModel: ObservableObject {
     /// Surf window length before high tide, in seconds (2 hours).
     private let windowLength: TimeInterval = 2 * 60 * 60
 
-    /// Builds the weekly schedule for a coordinate.
-    func load(for coordinate: CLLocationCoordinate2D) async {
+    /// How many nearby beaches to offer in the picker.
+    private let nearbyLimit = 12
+
+    // MARK: - Entry points
+
+    /// Loads nearby beaches around a coordinate (from GPS or a ZIP lookup) and
+    /// builds the schedule for the closest one, preserving an existing
+    /// selection if it's still in range.
+    func load(around coordinate: CLLocationCoordinate2D) async {
         state = .loading
         do {
-            let station = try await tideService.nearestStation(to: coordinate)
-            stationName = station.name
+            let stations = try await tideService.nearbyStations(to: coordinate, limit: nearbyLimit)
+            nearbyStations = stations
 
+            let chosen = selectedStation.flatMap { current in
+                stations.first { $0.id == current.id }
+            } ?? stations.first
+
+            selectedStation = chosen
+            guard let chosen else {
+                state = .failed("No tide stations found nearby.")
+                return
+            }
+            await loadSchedule(for: chosen)
+        } catch {
+            state = .failed("Couldn't load nearby beaches. Pull to retry.")
+        }
+    }
+
+    /// Geocodes a ZIP code and loads beaches around it.
+    func load(zip: String) async {
+        state = .loading
+        do {
+            let coordinate = try await geocoder.coordinate(forZip: zip)
+            selectedStation = nil   // pick the nearest beach to the new ZIP
+            await load(around: coordinate)
+        } catch {
+            state = .failed("Couldn't find that ZIP code.")
+        }
+    }
+
+    /// Switches to a specific beach the user picked.
+    func select(_ station: TideStation) async {
+        selectedStation = station
+        await loadSchedule(for: station)
+    }
+
+    /// Reloads the schedule for the currently selected beach (pull-to-refresh).
+    func reload() async {
+        guard let station = selectedStation else { return }
+        await loadSchedule(for: station)
+    }
+
+    // MARK: - Schedule for one station
+
+    private func loadSchedule(for station: TideStation) async {
+        state = .loading
+        let coordinate = CLLocationCoordinate2D(latitude: station.latitude, longitude: station.longitude)
+        do {
             async let tidesTask = tideService.highLowPredictions(station: station, days: forecastDays)
             async let weatherTask = weatherService.dailyForecast(for: coordinate)
 

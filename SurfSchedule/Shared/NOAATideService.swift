@@ -12,10 +12,11 @@ struct NOAATideService {
 
     private let session = URLSession.shared
 
-    // MARK: - Nearest station
+    // MARK: - Nearby stations
 
-    /// Finds the nearest tide-prediction station to the given coordinate.
-    func nearestStation(to coordinate: CLLocationCoordinate2D) async throws -> TideStation {
+    /// Returns the `limit` nearest tide-prediction stations to a coordinate,
+    /// closest first, each tagged with its distance in miles.
+    func nearbyStations(to coordinate: CLLocationCoordinate2D, limit: Int) async throws -> [TideStation] {
         let url = URL(string: "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json?type=tidepredictions")!
         let (data, response) = try await session.data(from: url)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
@@ -25,14 +26,24 @@ struct NOAATideService {
         let decoded = try JSONDecoder().decode(StationListResponse.self, from: data)
         let here = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
-        let nearest = decoded.stations.min { lhs, rhs in
-            let l = CLLocation(latitude: lhs.lat, longitude: lhs.lng).distance(from: here)
-            let r = CLLocation(latitude: rhs.lat, longitude: rhs.lng).distance(from: here)
-            return l < r
-        }
+        let sorted = decoded.stations
+            .map { station -> (TideStation, Double) in
+                let meters = CLLocation(latitude: station.lat, longitude: station.lng).distance(from: here)
+                let tide = TideStation(
+                    id: station.id,
+                    name: station.name,
+                    latitude: station.lat,
+                    longitude: station.lng,
+                    distanceMiles: meters / 1609.344
+                )
+                return (tide, meters)
+            }
+            .sorted { $0.1 < $1.1 }
+            .prefix(limit)
+            .map(\.0)
 
-        guard let nearest else { throw ServiceError.noStationsFound }
-        return TideStation(id: nearest.id, name: nearest.name, latitude: nearest.lat, longitude: nearest.lng)
+        guard !sorted.isEmpty else { throw ServiceError.noStationsFound }
+        return Array(sorted)
     }
 
     // MARK: - Predictions

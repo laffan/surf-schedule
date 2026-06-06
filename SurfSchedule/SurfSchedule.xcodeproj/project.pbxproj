@@ -12,6 +12,8 @@
 		000000000000000000000403 /* NOAATideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000203 /* NOAATideService.swift */; };
 		000000000000000000000404 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000204 /* WeatherService.swift */; };
 		000000000000000000000405 /* SurfScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000205 /* SurfScheduleViewModel.swift */; };
+		000000000000000000000412 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000020E /* GeocodingService.swift */; };
+		000000000000000000000413 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000020E /* GeocodingService.swift */; };
 		000000000000000000000406 /* SurfScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000206 /* SurfScheduleApp.swift */; };
 		000000000000000000000407 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000207 /* ContentView.swift */; };
 		000000000000000000000408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000208 /* Assets.xcassets */; };
@@ -56,6 +58,7 @@
 		000000000000000000000203 /* NOAATideService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAATideService.swift; sourceTree = "<group>"; };
 		000000000000000000000204 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		000000000000000000000205 /* SurfScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfScheduleViewModel.swift; sourceTree = "<group>"; };
+		00000000000000000000020E /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
 		000000000000000000000206 /* SurfScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfScheduleApp.swift; sourceTree = "<group>"; };
 		000000000000000000000207 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		000000000000000000000208 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 				000000000000000000000203 /* NOAATideService.swift */,
 				000000000000000000000204 /* WeatherService.swift */,
 				000000000000000000000205 /* SurfScheduleViewModel.swift */,
+				00000000000000000000020E /* GeocodingService.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -244,6 +248,7 @@
 				000000000000000000000403 /* NOAATideService.swift in Sources */,
 				000000000000000000000404 /* WeatherService.swift in Sources */,
 				000000000000000000000405 /* SurfScheduleViewModel.swift in Sources */,
+				000000000000000000000412 /* GeocodingService.swift in Sources */,
 				000000000000000000000406 /* SurfScheduleApp.swift in Sources */,
 				000000000000000000000407 /* ContentView.swift in Sources */,
 			);
@@ -258,6 +263,7 @@
 				00000000000000000000040B /* NOAATideService.swift in Sources */,
 				00000000000000000000040C /* WeatherService.swift in Sources */,
 				00000000000000000000040D /* SurfScheduleViewModel.swift in Sources */,
+				000000000000000000000413 /* GeocodingService.swift in Sources */,
 				00000000000000000000040E /* SurfScheduleWatchApp.swift in Sources */,
 				00000000000000000000040F /* WatchContentView.swift in Sources */,
 			);

@@ -64,10 +64,19 @@ struct SurfDay: Identifiable {
     }
 }
 
-/// A NOAA tide station.
-struct TideStation: Identifiable {
+/// A NOAA tide station (effectively a named beach/location for surf purposes).
+struct TideStation: Identifiable, Hashable {
     let id: String
     let name: String
     let latitude: Double
     let longitude: Double
+    var distanceMiles: Double? = nil
+
+    /// e.g. "Newport · 3 mi" — used in the beach picker.
+    var menuLabel: String {
+        if let miles = distanceMiles {
+            return "\(name) · \(Int(miles.rounded())) mi"
+        }
+        return name
+    }
 }

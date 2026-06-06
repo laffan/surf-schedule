@@ -5,6 +5,15 @@ find the best nearby surfing times for the week. The best window to surf is the
 **two hours before each daytime high tide**, so the app highlights that stretch
 for each day alongside wind and temperature.
 
+You can dial in the spot two ways when GPS lands on the wrong place:
+
+- **ZIP code** — type a ZIP to recenter (geocoded on-device via `CLGeocoder`,
+  no API key).
+- **Beach picker** — choose among the nearest NOAA tide stations (each shown
+  with its distance). The selected beach's coordinates are also used for the
+  weather lookup, so wind/temps match the spot. On the watch, tap the beach
+  row to pick.
+
 ```
 Monday
 1–3 PM
