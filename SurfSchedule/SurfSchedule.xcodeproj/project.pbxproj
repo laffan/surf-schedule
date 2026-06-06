@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000000000000000000000401 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000201 /* Models.swift */; };
+		000000000000000000000402 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000202 /* LocationManager.swift */; };
+		000000000000000000000403 /* NOAATideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000203 /* NOAATideService.swift */; };
+		000000000000000000000404 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000204 /* WeatherService.swift */; };
+		000000000000000000000405 /* SurfScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000205 /* SurfScheduleViewModel.swift */; };
+		000000000000000000000406 /* SurfScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000206 /* SurfScheduleApp.swift */; };
+		000000000000000000000407 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000207 /* ContentView.swift */; };
+		000000000000000000000408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000208 /* Assets.xcassets */; };
+		000000000000000000000409 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000201 /* Models.swift */; };
+		00000000000000000000040A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000202 /* LocationManager.swift */; };
+		00000000000000000000040B /* NOAATideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000203 /* NOAATideService.swift */; };
+		00000000000000000000040C /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000204 /* WeatherService.swift */; };
+		00000000000000000000040D /* SurfScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000205 /* SurfScheduleViewModel.swift */; };
+		00000000000000000000040E /* SurfScheduleWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000020A /* SurfScheduleWatchApp.swift */; };
+		00000000000000000000040F /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000020B /* WatchContentView.swift */; };
+		000000000000000000000410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000020C /* Assets.xcassets */; };
+		000000000000000000000411 /* SurfScheduleWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 000000000000000000000302 /* SurfScheduleWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		000000000000000000000902 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 000000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000502;
+			remoteInfo = SurfScheduleWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		000000000000000000000604 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				000000000000000000000411 /* SurfScheduleWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		000000000000000000000201 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		000000000000000000000202 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		000000000000000000000203 /* NOAATideService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAATideService.swift; sourceTree = "<group>"; };
+		000000000000000000000204 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		000000000000000000000205 /* SurfScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfScheduleViewModel.swift; sourceTree = "<group>"; };
+		000000000000000000000206 /* SurfScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfScheduleApp.swift; sourceTree = "<group>"; };
+		000000000000000000000207 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		000000000000000000000208 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		000000000000000000000209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00000000000000000000020A /* SurfScheduleWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfScheduleWatchApp.swift; sourceTree = "<group>"; };
+		00000000000000000000020B /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
+		00000000000000000000020C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00000000000000000000020D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		000000000000000000000301 /* SurfSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000000000000000000000302 /* SurfScheduleWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfScheduleWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		000000000000000000000602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000000000000000000000100 = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000101 /* Shared */,
+				000000000000000000000102 /* iOS */,
+				000000000000000000000103 /* Watch */,
+				000000000000000000000104 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		000000000000000000000101 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000201 /* Models.swift */,
+				000000000000000000000202 /* LocationManager.swift */,
+				000000000000000000000203 /* NOAATideService.swift */,
+				000000000000000000000204 /* WeatherService.swift */,
+				000000000000000000000205 /* SurfScheduleViewModel.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		000000000000000000000102 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000206 /* SurfScheduleApp.swift */,
+				000000000000000000000207 /* ContentView.swift */,
+				000000000000000000000208 /* Assets.xcassets */,
+				000000000000000000000209 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		000000000000000000000103 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000020A /* SurfScheduleWatchApp.swift */,
+				00000000000000000000020B /* WatchContentView.swift */,
+				00000000000000000000020C /* Assets.xcassets */,
+				00000000000000000000020D /* Info.plist */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		000000000000000000000104 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000301 /* SurfSchedule.app */,
+				000000000000000000000302 /* SurfScheduleWatch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		000000000000000000000501 /* SurfSchedule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000702 /* Build configuration list for PBXNativeTarget "SurfSchedule" */;
+			buildPhases = (
+				000000000000000000000601 /* Sources */,
+				000000000000000000000602 /* Frameworks */,
+				000000000000000000000603 /* Resources */,
+				000000000000000000000604 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000901 /* PBXTargetDependency */,
+			);
+			name = SurfSchedule;
+			productName = SurfSchedule;
+			productReference = 000000000000000000000301 /* SurfSchedule.app */;
+			productType = "com.apple.product-type.application";
+		};
+		000000000000000000000502 /* SurfScheduleWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000703 /* Build configuration list for PBXNativeTarget "SurfScheduleWatch" */;
+			buildPhases = (
+				000000000000000000000605 /* Sources */,
+				000000000000000000000606 /* Frameworks */,
+				000000000000000000000607 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SurfScheduleWatch;
+			productName = SurfScheduleWatch;
+			productReference = 000000000000000000000302 /* SurfScheduleWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		000000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					000000000000000000000501 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					000000000000000000000502 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 000000000000000000000701 /* Build configuration list for PBXProject "SurfSchedule" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 000000000000000000000100;
+			productRefGroup = 000000000000000000000104 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				000000000000000000000501 /* SurfSchedule */,
+				000000000000000000000502 /* SurfScheduleWatch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		000000000000000000000603 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000408 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000410 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		000000000000000000000601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000401 /* Models.swift in Sources */,
+				000000000000000000000402 /* LocationManager.swift in Sources */,
+				000000000000000000000403 /* NOAATideService.swift in Sources */,
+				000000000000000000000404 /* WeatherService.swift in Sources */,
+				000000000000000000000405 /* SurfScheduleViewModel.swift in Sources */,
+				000000000000000000000406 /* SurfScheduleApp.swift in Sources */,
+				000000000000000000000407 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000605 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000409 /* Models.swift in Sources */,
+				00000000000000000000040A /* LocationManager.swift in Sources */,
+				00000000000000000000040B /* NOAATideService.swift in Sources */,
+				00000000000000000000040C /* WeatherService.swift in Sources */,
+				00000000000000000000040D /* SurfScheduleViewModel.swift in Sources */,
+				00000000000000000000040E /* SurfScheduleWatchApp.swift in Sources */,
+				00000000000000000000040F /* WatchContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		000000000000000000000901 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000502 /* SurfScheduleWatch */;
+			targetProxy = 000000000000000000000902 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		000000000000000000000801 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		000000000000000000000802 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				COPY_PHASE_STRIP = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		000000000000000000000803 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laffan.SurfSchedule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		000000000000000000000804 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laffan.SurfSchedule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		000000000000000000000805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Watch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Surf;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laffan.SurfSchedule.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		000000000000000000000806 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Watch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Surf;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.laffan.SurfSchedule.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		000000000000000000000701 /* Build configuration list for PBXProject "SurfSchedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000801 /* Debug */,
+				000000000000000000000802 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000702 /* Build configuration list for PBXNativeTarget "SurfSchedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000803 /* Debug */,
+				000000000000000000000804 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000703 /* Build configuration list for PBXNativeTarget "SurfScheduleWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000805 /* Debug */,
+				000000000000000000000806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 000000000000000000000001 /* Project object */;
+}

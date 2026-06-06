@@ -1,0 +1,42 @@
+# XcodeGen spec — only needed if you want to regenerate SurfSchedule.xcodeproj.
+# The committed .xcodeproj already works; this is a convenience for keeping the
+# project file reproducible. Install XcodeGen (`brew install xcodegen`) then run
+# `xcodegen generate` from this directory.
+name: SurfSchedule
+options:
+  bundleIdPrefix: com.laffan
+  deploymentTarget:
+    iOS: "16.0"
+    watchOS: "9.0"
+
+targets:
+  SurfSchedule:
+    type: application
+    platform: iOS
+    sources:
+      - Shared
+      - iOS
+    info:
+      path: iOS/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.laffan.SurfSchedule
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    dependencies:
+      - target: SurfScheduleWatch
+        embed: true
+
+  SurfScheduleWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - Shared
+      - Watch
+    info:
+      path: Watch/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.laffan.SurfSchedule.watchkitapp
+        TARGETED_DEVICE_FAMILY: "4"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
