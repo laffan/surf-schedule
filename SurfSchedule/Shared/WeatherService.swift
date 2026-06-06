@@ -4,6 +4,7 @@ import CoreLocation
 /// Per-day weather distilled from the National Weather Service forecast.
 struct DailyWeather {
     var windDescription: String?
+    var windDirection: String?
     var conditions: String?
     var lowTemp: Int?
     var highTemp: Int?
@@ -60,12 +61,14 @@ struct WeatherService {
             if period.isDaytime {
                 entry.highTemp = period.temperature
                 entry.windDescription = period.windSpeed
+                entry.windDirection = period.windDirection
                 entry.conditions = period.shortForecast
             } else {
                 entry.lowTemp = period.temperature
-                // Use daytime conditions if we have them; otherwise fall back.
+                // Use daytime values if we have them; otherwise fall back.
                 if entry.conditions == nil { entry.conditions = period.shortForecast }
                 if entry.windDescription == nil { entry.windDescription = period.windSpeed }
+                if entry.windDirection == nil { entry.windDirection = period.windDirection }
             }
 
             result[day] = entry
@@ -89,6 +92,7 @@ struct WeatherService {
             let isDaytime: Bool
             let temperature: Int
             let windSpeed: String
+            let windDirection: String
             let shortForecast: String
         }
     }

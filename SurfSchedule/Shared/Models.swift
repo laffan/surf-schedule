@@ -38,6 +38,7 @@ struct SurfDay: Identifiable {
     var surfWindows: [SurfWindow] = []
 
     var windDescription: String?   // e.g. "5 to 10 mph"
+    var windDirection: String?     // e.g. "SW"
     var conditions: String?        // e.g. "Sunny"
     var lowTemp: Int?
     var highTemp: Int?
@@ -49,10 +50,17 @@ struct SurfDay: Identifiable {
         return f.string(from: date)
     }
 
-    /// e.g. "5 to 10 mph / Sunny"
+    /// e.g. "SW 5 to 10 mph / Sunny"
     var weatherSummary: String {
-        let wind = windDescription ?? "—"
         let cond = conditions ?? "—"
+        var wind = "—"
+        if let speed = windDescription {
+            if let dir = windDirection, !dir.isEmpty {
+                wind = "\(dir) \(speed)"
+            } else {
+                wind = speed
+            }
+        }
         return "\(wind) / \(cond)"
     }
 

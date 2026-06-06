@@ -6,6 +6,7 @@ struct ContentView: View {
 
     @AppStorage("savedZip") private var zip = ""
     @State private var didInitialLoad = false
+    @FocusState private var zipFieldFocused: Bool
 
     var body: some View {
         NavigationStack {
@@ -14,7 +15,7 @@ struct ContentView: View {
                 Divider()
                 schedule
             }
-            .navigationTitle("Surf")
+            .navigationBarTitleDisplayMode(.inline)
         }
         // Restore a saved ZIP on launch instead of using GPS.
         .task {
@@ -40,6 +41,7 @@ struct ContentView: View {
                     .keyboardType(.numberPad)
                     .textFieldStyle(.roundedBorder)
                     .submitLabel(.search)
+                    .focused($zipFieldFocused)
                     .onSubmit { lookupZip() }
 
                 Button("Go", action: lookupZip)
@@ -110,12 +112,14 @@ struct ContentView: View {
     }
 
     private func lookupZip() {
+        zipFieldFocused = false
         let trimmed = zip.trimmingCharacters(in: .whitespaces)
         guard trimmed.count >= 5 else { return }
         Task { await viewModel.load(zip: trimmed) }
     }
 
     private func useCurrentLocation() {
+        zipFieldFocused = false
         zip = ""
         viewModel.selectedStation = nil
         if let coordinate = location.location?.coordinate {

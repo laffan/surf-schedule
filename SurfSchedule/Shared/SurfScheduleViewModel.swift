@@ -121,6 +121,7 @@ final class SurfScheduleViewModel: ObservableObject {
 
             if let w = weather[day] {
                 surfDay.windDescription = w.windDescription
+                surfDay.windDirection = w.windDirection
                 surfDay.conditions = w.conditions
                 surfDay.lowTemp = w.lowTemp
                 surfDay.highTemp = w.highTemp
